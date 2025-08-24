@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Birthday celebration design system - Dark theme with pink magic */
+
+@layer base {
+  :root {
+    /* Dark birthday theme */
+    --background: 270 15% 8%;
+    --foreground: 330 15% 95%;
+
+    --card: 270 20% 12%;
+    --card-foreground: 330 15% 95%;
+
+    --popover: 270 20% 12%;
+    --popover-foreground: 330 15% 95%;
+
+    /* Beautiful pink primary colors */
+    --primary: 330 85% 65%;
+    --primary-foreground: 270 15% 8%;
+    --primary-glow: 330 100% 75%;
+
+    /* Softer pink secondary */
+    --secondary: 315 50% 25%;
+    --secondary-foreground: 330 15% 95%;
+
+    /* Muted pink tones */
+    --muted: 270 15% 15%;
+    --muted-foreground: 315 20% 70%;
+
+    /* Gold accent for special moments */
+    --accent: 45 90% 65%;
+    --accent-foreground: 270 15% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 270 20% 20%;
+    --input: 270 20% 18%;
+    --ring: 330 85% 65%;
+
+    --radius: 1rem;
+
+    /* Birthday magic gradients */
+    --gradient-birthday: linear-gradient(135deg, hsl(330 85% 65%), hsl(315 80% 70%), hsl(45 90% 65%));
+    --gradient-present: linear-gradient(135deg, hsl(330 100% 75%), hsl(315 85% 65%));
+    --gradient-cake: linear-gradient(180deg, hsl(25 85% 65%), hsl(15 80% 55%));
+    --gradient-envelope: linear-gradient(135deg, hsl(210 25% 85%), hsl(200 30% 90%));
+
+    /* Magical shadows and glows */
+    --shadow-magical: 0 20px 40px -10px hsl(330 85% 65% / 0.4);
+    --shadow-present: 0 10px 30px -5px hsl(330 100% 75% / 0.6);
+    --shadow-glow: 0 0 30px hsl(330 85% 65% / 0.8);
+    --shadow-soft: 0 4px 20px hsl(270 20% 5% / 0.5);
+
+    /* Birthday animations */
+    --transition-magical: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins;
+    background-image: 
+      radial-gradient(circle at 20% 50%, hsl(330 85% 65% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(315 80% 70% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(45 90% 65% / 0.05) 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  /* Birthday celebration animations */
+  .animate-shake {
+    animation: shake 2s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce-gentle 3s ease-in-out infinite;
+  }
+
+  .animate-sparkle {
+    animation: sparkle 1.5s ease-in-out infinite;
+  }
+
+  .animate-hug {
+    animation: hug 1s ease-in-out;
+  }
+
+  .animate-candle-flicker {
+    animation: candle-flicker 2s ease-in-out infinite;
+  }
+
+  .animate-confetti {
+    animation: confetti 3s ease-out infinite;
+  }
+
+  /* Magical button styles */
+  .btn-birthday {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground;
+    @apply px-8 py-4 rounded-full font-semibold text-lg;
+    @apply shadow-magical hover:shadow-glow;
+    @apply transition-all duration-300 hover:scale-105;
+    @apply border border-primary/20;
+  }
+
+  .btn-present {
+    @apply text-8xl cursor-pointer select-none;
+    @apply transition-all duration-300 hover:scale-110;
+    filter: drop-shadow(var(--shadow-present));
+  }
+
+  /* Card styles */
+  .card-magical {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50;
+    @apply rounded-2xl shadow-soft;
+    @apply transition-all duration-300 hover:shadow-magical;
+  }
+
+  /* Typography styles */
+  .heading-birthday {
+    @apply font-dancing text-transparent bg-clip-text;
+    background-image: var(--gradient-birthday);
+  }
+
+  .text-magical {
+    @apply text-foreground/90 leading-relaxed;
+  }
+
+  /* Animation keyframes */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+    20%, 40%, 60%, 80% { transform: translateX(2px); }
+  }
+
+  @keyframes glow {
+    0% { filter: drop-shadow(0 0 5px hsl(330 85% 65% / 0.5)); }
+    100% { filter: drop-shadow(0 0 20px hsl(330 85% 65% / 0.8)); }
+  }
+
+  @keyframes bounce-gentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); }
+  }
+
+  @keyframes hug {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes candle-flicker {
+    0%, 100% { opacity: 1; transform: scaleY(1); }
+    50% { opacity: 0.8; transform: scaleY(0.95); }
+  }
+
+  @keyframes confetti {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+  }
+}
